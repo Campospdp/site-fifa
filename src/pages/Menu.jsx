@@ -1,4 +1,5 @@
-export default function Menu({ onBack, onGoCalendario }) {
+// Adicionamos 'onGoEstatisticas' aqui nas chaves { }
+export default function Menu({ onBack, onGoCalendario, onGoEstatisticas }) {
   // Lista de itens dos cards
   const itens = ["CALENDÁRIO", "COMPETIÇÕES", "ESTATÍSTICAS", ""];
 
@@ -38,6 +39,10 @@ export default function Menu({ onBack, onGoCalendario }) {
             onClick={() => {
               if (titulo === "CALENDÁRIO") {
                 onGoCalendario();
+              }
+              // ADICIONADO: Lógica para o botão de Estatísticas
+              if (titulo === "ESTATÍSTICAS") {
+                onGoEstatisticas();
               }
             }}
             className={`

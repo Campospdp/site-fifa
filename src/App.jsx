@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Home from './pages/HomeTemp';
 import Menu from './pages/Menu';
 import Calendario from './pages/Calendario';
+import Estatisticas from './pages/Estatisticas'; // Importação adicionada
 import eaLogo from './assets/images/ea_logo.png';
 import fmnLogo from './assets/images/fc_mania.png';
 
@@ -27,11 +28,17 @@ function App() {
           <Menu 
             onBack={() => setTelaAtiva('home')} 
             onGoCalendario={() => setTelaAtiva('calendario')} 
+            onGoEstatisticas={() => setTelaAtiva('estatisticas')} // Função adicionada aqui
           />
         )}
 
         {telaAtiva === 'calendario' && (
           <Calendario onBack={() => setTelaAtiva('menu')} />
+        )}
+
+        {/* Renderização da tela de Estatísticas adicionada */}
+        {telaAtiva === 'estatisticas' && (
+          <Estatisticas onBack={() => setTelaAtiva('menu')} />
         )}
       </main>
 
