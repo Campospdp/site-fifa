@@ -2,7 +2,9 @@ import { useState } from 'react';
 import Home from './pages/HomeTemp';
 import Menu from './pages/Menu';
 import Calendario from './pages/Calendario';
-import Estatisticas from './pages/Estatisticas'; // Importação adicionada
+import Estatisticas from './pages/Estatisticas';
+import Competicoes from './pages/Competicoes'; 
+import TabelaBrasileirao from './pages/TabelaBrasileirao'; // 1. Importação da nova tela
 import eaLogo from './assets/images/ea_logo.png';
 import fmnLogo from './assets/images/fc_mania.png';
 
@@ -18,7 +20,7 @@ function App() {
         <img src={fmnLogo} alt="FC MANIA" className="h-6 w-auto object-contain" />
       </header>
 
-      {/* CONTEÚDO DINÂMICO (Área que muda) */}
+      {/* CONTEÚDO DINÂMICO */}
       <main className="flex-grow overflow-hidden flex flex-col">
         {telaAtiva === 'home' && (
           <Home onNavigate={() => setTelaAtiva('menu')} />
@@ -28,53 +30,49 @@ function App() {
           <Menu 
             onBack={() => setTelaAtiva('home')} 
             onGoCalendario={() => setTelaAtiva('calendario')} 
-            onGoEstatisticas={() => setTelaAtiva('estatisticas')} // Função adicionada aqui
+            onGoEstatisticas={() => setTelaAtiva('estatisticas')}
+            onGoCompeticoes={() => setTelaAtiva('selecao')} 
           />
+        )}
+
+        {/* Lógica de Competitções atualizada para abrir a tabela */}
+        {telaAtiva === 'selecao' && (
+          <Competicoes 
+            onBack={() => setTelaAtiva('menu')} 
+            onSelect={(comp) => {
+              if (comp.id === 'brasileirao') {
+                setTelaAtiva('tabela'); // 2. Vai para a tabela se for brasileirão
+              }
+            }} 
+          />
+        )}
+
+        {/* 3. Nova tela da Tabela Brasileirão */}
+        {telaAtiva === 'tabela' && (
+          <TabelaBrasileirao onBack={() => setTelaAtiva('selecao')} />
         )}
 
         {telaAtiva === 'calendario' && (
           <Calendario onBack={() => setTelaAtiva('menu')} />
         )}
 
-        {/* Renderização da tela de Estatísticas adicionada */}
         {telaAtiva === 'estatisticas' && (
           <Estatisticas onBack={() => setTelaAtiva('menu')} />
         )}
       </main>
 
-      {/* FOOTER FIXO (Sempre visível) */}
+      {/* FOOTER FIXO */}
       <footer className="bg-[#1c1d26] p-4 flex justify-between items-center border-t border-[#2e303a] z-50">
         <p className="text-[10px] text-zinc-500 font-bold tracking-widest uppercase">
           Pedro Campos © 2026
         </p>
         
         <div className="flex gap-3">
-          <a 
-            href="https://www.linkedin.com/in/pedro-campos-leitao" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="w-7 h-7 bg-[#0077b5] rounded-sm flex items-center justify-center hover:scale-110 transition-transform shadow-md"
-          >
-            <img 
-              src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
-              alt="LinkedIn" 
-              className="w-4 h-4" 
-              style={{ filter: 'brightness(0) invert(1)' }} 
-            />
+          <a href="https://www.linkedin.com/in/pedro-campos-leitao" target="_blank" rel="noopener noreferrer" className="w-7 h-7 bg-[#0077b5] rounded-sm flex items-center justify-center hover:scale-110 transition-transform shadow-md">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" className="w-4 h-4" style={{ filter: 'brightness(0) invert(1)' }} />
           </a>
-
-          <a 
-            href="https://github.com/Campospdp" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="w-7 h-7 bg-[#24292e] rounded-sm flex items-center justify-center hover:scale-110 transition-transform shadow-md border border-zinc-700"
-          >
-            <img 
-              src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
-              alt="GitHub" 
-              className="w-4 h-4" 
-              style={{ filter: 'brightness(0) invert(1)' }}
-            />
+          <a href="https://github.com/Campospdp" target="_blank" rel="noopener noreferrer" className="w-7 h-7 bg-[#24292e] rounded-sm flex items-center justify-center hover:scale-110 transition-transform shadow-md border border-zinc-700">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" className="w-4 h-4" style={{ filter: 'brightness(0) invert(1)' }} />
           </a>
         </div>
       </footer>
