@@ -1,4 +1,4 @@
-import logoCorinthians from '../assets/images/corinthians.webp';
+import logoCorinthians from "../assets/images/corinthians.webp";
 
 export default function Home({ onNavigate }) {
   return (
@@ -20,7 +20,7 @@ export default function Home({ onNavigate }) {
             Temporada
           </span>
           <span className="text-5xl font-black italic tracking-tighter leading-none">
-            2025
+            2026
           </span>
         </div>
       </div>

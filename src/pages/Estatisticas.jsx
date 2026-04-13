@@ -8,9 +8,9 @@ export default function Estatisticas({ onBack }) {
     { 
       pos: "ATA", nome: "Yuri Alberto", idade: 25, ovr: 83, evolucao: "+5",
       altura: "183 cm", peso: "77 kg", perna: "Direita",
-      bandeira: "/src/assets/flags/Brazil.png", 
+      bandeira: "/src/assets/Nacionalidade/Brazil.png", 
       foto: "/src/assets/players/Yuri.png", 
-      valor: "R$ 157,5M",
+      valor: "€ 157,5M",
       competicoes: [
         { nome: "Supercopa do Br",jog: 1,g: 1,a: 0,ca: 0,cv: 0,med: 8.10 },
         { nome: "Paulistão",jog: 14,g: 15,a: 2,ca: 0,cv: 0,med: 8.11 },
@@ -20,25 +20,11 @@ export default function Estatisticas({ onBack }) {
       ]
     },
     { 
-      pos: "GL", nome: "Neuer", idade: 40, ovr: 83, evolucao: "-1",
-      altura: "193 cm", peso: "93 kg", perna: "Direita",
-      bandeira: "/src/assets/flags/Alemanha.png", 
-      foto: "/src/assets/players/Neuer.png", 
-      valor: "R$ 15,5M",
-      competicoes: [
-        { nome: "Supercopa do Br",jog: 0,g: 0,a: 0,ca: 0,cv: 0,med: 0 },
-        { nome: "Paulistão",jog: 11,g: 0,a: 1,ca: 0,cv: 0,med: 7.52 },
-        { nome: "Copa do Brasil",jog: 2,g: 0,a: 0,ca: 0,cv: 0,med: 5.05 },
-        { nome: "Brasileirão",jog: 38,g: 0,a: 0,ca: 0,cv: 0,med: 6.44 },
-        { nome: "Libertadores",jog: 12,g: 0,a: 0,ca: 0,cv: 0,med: 6.69 },
-      ]
-    },
-    { 
       pos: "PD", nome: "Memphis Depay", idade: 32, ovr: 81, evolucao: "0",
       altura: "178 cm", peso: "78 kg", perna: "Direita",
-      bandeira: "/src/assets/flags/Nl.png", 
+      bandeira: "/src/assets/Nacionalidade/Holanda.png", 
       foto: "/src/assets/players/Memphis.png", 
-      valor: "R$ 87M",
+      valor: "€ 87M",
       competicoes: [
         { nome: "Supercopa do Br",jog: 1,g: 0,a: 0,ca: 0,cv: 0,med: 6.00 },
         { nome: "Paulistão",jog: 13,g: 6,a: 12,ca: 1,cv: 1,med: 8.12 },
@@ -50,9 +36,9 @@ export default function Estatisticas({ onBack }) {
     { 
       pos: "MEI", nome: "Garro", idade: 28, ovr: 80, evolucao: "+2",
       altura: "174 cm", peso: "70 kg", perna: "Esquerda",
-      bandeira: "/src/assets/flags/Argentina.png", 
+      bandeira: "/src/assets/Nacionalidade/Argentina.png", 
       foto: "/src/assets/players/Garro.png", 
-      valor: "R$ 82M",
+      valor: "€ 82M",
       competicoes: [
         { nome: "Supercopa do Br",jog: 1,g: 0,a: 0,ca: 0,cv: 0,med: 7.40 },
         { nome: "Paulistão",jog: 14,g: 5,a: 7,ca: 1,cv: 0,med: 7.87 },
