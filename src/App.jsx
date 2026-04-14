@@ -4,20 +4,23 @@ import Menu from './pages/Menu';
 import Calendario from './pages/Calendario';
 import Estatisticas from './pages/Estatisticas';
 import Competicoes from './pages/Competicoes'; 
-import TabelaBrasileirao from './pages/TabelaBrasileirao'; // 1. Importação da nova tela
-import eaLogo from './assets/images/ea_logo.png';
-import fmnLogo from './assets/images/fc_mania.png';
+import TabelaBrasileirao from './pages/TabelaBrasileirao';
+import TabelaPaulistao from './pages/TabelaPaulistao'; //  Importar a nova tabela
+import TabelaLibertadores from './pages/TabelaLibertadores';
 
 function App() {
   const [telaAtiva, setTelaAtiva] = useState('home');
+
+  const eaLogoPath = "/images/ea_logo.png";
+  const fmnLogoPath = "/images/fc_mania.png";
 
   return (
     <div className="h-screen flex flex-col bg-[#16171d] font-sans overflow-hidden">
       
       {/* HEADER FIXO */}
       <header className="p-4 bg-[#1c1d26] border-b border-[#2e303a] flex justify-between items-center z-50">
-        <img src={eaLogo} alt="EA SPORTS FC" className="h-6 w-auto object-contain" />
-        <img src={fmnLogo} alt="FC MANIA" className="h-6 w-auto object-contain" />
+        <img src={eaLogoPath} alt="EA SPORTS FC" className="h-6 w-auto object-contain" />
+        <img src={fmnLogoPath} alt="FC MANIA" className="h-6 w-auto object-contain" />
       </header>
 
       {/* CONTEÚDO DINÂMICO */}
@@ -35,21 +38,33 @@ function App() {
           />
         )}
 
-        {/* Lógica de Competitções atualizada para abrir a tabela */}
         {telaAtiva === 'selecao' && (
           <Competicoes 
             onBack={() => setTelaAtiva('menu')} 
             onSelect={(comp) => {
+              // Adicionando a lógica para todas as competições
               if (comp.id === 'brasileirao') {
-                setTelaAtiva('tabela'); // 2. Vai para a tabela se for brasileirão
+                setTelaAtiva('tabela_brasileirao');
+              } else if (comp.id === 'paulistao') {
+                setTelaAtiva('tabela_paulistao');
+              } else if (comp.id === 'libertadores') { // <--- Faltava este aqui
+                setTelaAtiva('tabela_libertadores');
               }
             }} 
           />
         )}
 
-        {/* 3. Nova tela da Tabela Brasileirão */}
-        {telaAtiva === 'tabela' && (
+        {/* 3. Renderização Condicional das Tabelas */}
+        {telaAtiva === 'tabela_brasileirao' && (
           <TabelaBrasileirao onBack={() => setTelaAtiva('selecao')} />
+        )}
+
+        {telaAtiva === 'tabela_paulistao' && (
+          <TabelaPaulistao onBack={() => setTelaAtiva('selecao')} />
+        )}
+
+        {telaAtiva === 'tabela_libertadores' && (
+          <TabelaLibertadores onBack={() => setTelaAtiva('selecao')} />
         )}
 
         {telaAtiva === 'calendario' && (

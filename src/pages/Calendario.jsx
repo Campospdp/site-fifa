@@ -1,23 +1,41 @@
-import logoCorinthians from '../assets/images/corinthians.webp';
-
-// IMPORTAÇÃO DAS IMAGENS QUE VOCÊ SUBIU
-import imgPaulista from '../assets/images/paulista.png';
-import imgBrasileiro from '../assets/images/brasileiro.png';
-import imgCopaBrasil from '../assets/images/CBD.png';
-import imgLiberta from '../assets/images/liberta.png';
-import imgSupercopa from '../assets/images/supercopa.png';
+import React from 'react';
 
 export default function Calendario({ onBack }) {
-  // DICIONÁRIO DE LOGOS
-  const logos = {
-    "PAULISTÃO": imgPaulista,
-    "BRASILEIRÃO": imgBrasileiro,
-    "COPA DO BRASIL": imgCopaBrasil,
-    "SUPERCOPA DO BRASIL": imgSupercopa,
-    "LIBERTADORES": imgLiberta
+  // DICIONÁRIO DE LOGOS DAS COMPETIÇÕES
+  const logosComps = {
+    "PAULISTÃO": "/images/paulista.png",
+    "BRASILEIRÃO": "/images/brasileiro.png",
+    "COPA DO BRASIL": "/images/CBD.png",
+    "SUPERCOPA DO BRASIL": "/images/supercopa.png",
+    "LIBERTADORES": "/images/liberta.png"
   };
 
-  // --- LISTA DE JOGOS MANUAL ---
+  // DICIONÁRIO DE LOGOS DOS TIMES (Mapeie os nomes aqui)
+  const logosTimes = {
+    "FLAMENGO": "/times/flamengo.png",
+    "MIRASSOL": "/times/mirassol.png",
+    "BOTAFOGO - SP": "/times/botafogo-sp.png",
+    "PONTE PRETA": "/times/ponte-preta.png",
+    "SÃO PAULO": "/times/sao paulo.png",
+    "PALMEIRAS": "/times/palmeiras.png",
+    "ITUANO": "/times/ituano.png",
+    "INTER DE LIMEIRA": "/times/inter-limeira.png",
+    "FERROVIÁRIA": "/times/ferroviaria.png",
+    "GUARANI": "/times/guarani.png",
+    "SÃO BERNARDO": "/times/sao-bernardo.png",
+    "SANTO ANDRÉ": "/times/santo-andre.png",
+    "PORTUGUESA": "/times/portuguesa.png",
+    "SANTOS": "/times/santos.webp",
+    "NOVORIZONTINO": "/times/novorizontino.png",
+    "RB BRAGANTINO": "/times/bragantino.png",
+    "OLIMPIA": "/times/olimpia.png",
+    "REMO": "/times/remo.webp",
+    "GRÊMIO": "/times/gremio.png",
+    "PEÑAROL": "/times/penarol.png"
+  };
+
+  const logoSCCP = "/times/corinthians.webp";
+
   const listaDeJogos = [
     { id: 1, adv: "FLAMENGO", p1: 1, p2: 2, res: "L", comp: "SUPERCOPA DO BRASIL" },
     { id: 2, adv: "MIRASSOL", p1: 2, p2: 3, res: "L", comp: "PAULISTÃO" },
@@ -42,8 +60,8 @@ export default function Calendario({ onBack }) {
     { id: 21, adv: "FLAMENGO", p1: 1, p2: 3, res: "L", comp: "BRASILEIRÃO" },
     { id: 22, adv: "OLIMPIA", p1: 3, p2: 2, res: "W", comp: "LIBERTADORES" },
     { id: 23, adv: "REMO", p1: 1, p2: 2, res: "L", comp: "BRASILEIRÃO" },
-    { id: 23, adv: "GRÊMIO", p1: 0, p2: 5, res: "L", comp: "BRASILEIRÃO" },
-    { id: 23, adv: "PENAROL", p1: 5, p2: 4, res: "W", comp: "LIBERTADORES" },
+    { id: 24, adv: "GRÊMIO", p1: 0, p2: 5, res: "L", comp: "BRASILEIRÃO" },
+    { id: 25, adv: "PEÑAROL", p1: 5, p2: 4, res: "W", comp: "LIBERTADORES" },
   ];
 
   return (
@@ -67,12 +85,12 @@ export default function Calendario({ onBack }) {
         {listaDeJogos.map((jogo) => (
           <div key={jogo.id} className="flex items-center justify-between border-b border-zinc-700/20 pb-4">
             
-            {/* Logo da Competição - AGORA VISÍVEL */}
+            {/* Logo da Competição */}
             <div className="w-16 flex flex-col items-center gap-1">
                <img 
-                 src={logos[jogo.comp] || imgBrasileiro} 
+                 src={logosComps[jogo.comp] || "/images/brasileiro.png"} 
                  alt={jogo.comp} 
-                 className="w-7 h-7 object-contain" // Removi grayscale e brightness
+                 className="w-7 h-7 object-contain"
                />
                <span className="text-[7px] font-black text-center leading-tight uppercase text-zinc-800">
                  {jogo.comp}
@@ -84,11 +102,16 @@ export default function Calendario({ onBack }) {
               <div className="flex flex-col items-end gap-1">
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] font-black text-zinc-900 uppercase">Corinthians</span>
-                  <img src={logoCorinthians} className="w-4 h-4 object-contain" alt="SCCP" />
+                  <img src={logoSCCP} className="w-4 h-4 object-contain" alt="SCCP" />
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] font-black text-zinc-800 uppercase leading-none">{jogo.adv}</span>
-                  <div className="w-4 h-4 bg-zinc-800 rounded-full border border-white/10" />
+                  {/* LOGO DO ADVERSÁRIO ADICIONADO AQUI */}
+                  <img 
+                    src={logosTimes[jogo.adv] || "/times/default.png"} 
+                    className="w-4 h-4 object-contain" 
+                    alt={jogo.adv} 
+                  />
                 </div>
               </div>
               
