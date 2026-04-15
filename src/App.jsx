@@ -8,7 +8,7 @@ import TabelaBrasileirao from './pages/TabelaBrasileirao';
 import TabelaPaulistao from './pages/TabelaPaulistao';
 import TabelaLibertadores from './pages/TabelaLibertadores';
 import TabelaSudamericana from './pages/TabelaSudamericana';
-import TabelaCopaDoBrasil from './pages/TabelaCopadoBrasil';
+import TabelaCopaDoBrasil from "./pages/TabelaCopaDoBrasil";
 import TabelaSupercopaBR from './pages/TabelaSupercopaBR';
 import TabelaRecopa from './pages/TabelaRecopa';
 import TabelaMundial from './pages/TabelaMundial';
