@@ -46,7 +46,8 @@ export default function TabelaPaulistao({ onBack }) {
     }
   ];
 
-  const gridLayoutLiga = "grid-cols-[20px_1fr_20px_20px_20px_20px_22px_35px_25px] md:grid-cols-[40px_1fr_35px_35px_35px_35px_45px_60px_45px]";
+  // Grid responsivo: W, D, L ocultos no mobile para manter o padrão
+  const gridLayoutLiga = "grid-cols-[25px_1fr_20px_0px_0px_0px_22px_35px_25px] md:grid-cols-[40px_1fr_35px_35px_35px_35px_45px_60px_45px]";
 
   return (
     <main className="flex-grow bg-[#959595] text-zinc-900 flex flex-col h-full overflow-hidden font-sans uppercase italic font-bold">
@@ -75,32 +76,32 @@ export default function TabelaPaulistao({ onBack }) {
                 <span className="text-center">#</span>
                 <span>TIME</span>
                 <span className="text-center">P</span>
-                <span className="text-center">W</span>
-                <span className="text-center">D</span>
-                <span className="text-center">L</span>
+                <span className="text-center hidden md:block">W</span>
+                <span className="text-center hidden md:block">D</span>
+                <span className="text-center hidden md:block">L</span>
                 <span className="text-center">DF</span>
                 <span className="text-center">GLS</span>
                 <span className="text-center text-zinc-900 font-black">PTS</span>
               </div>
 
               {ligaGeral.map((t, i) => (
-                <div key={t.nome} className={`grid ${gridLayoutLiga} gap-0.5 md:gap-2 px-1 md:px-2 py-2 items-center bg-[#d9d9d9]/60 mt-0.5 border-l-4 ${i < 8 ? 'border-[#12a856]' : i >= 14 ? 'border-red-600' : 'border-transparent'}`}>
-                  <span className={`w-3.5 h-3.5 md:w-6 md:h-6 flex items-center justify-center rounded-full text-[8px] md:text-[11px] text-white ${i < 8 ? 'bg-[#12a856]' : i >= 14 ? 'bg-red-600' : 'bg-zinc-500'}`}>
+                <div key={t.nome} className={`grid ${gridLayoutLiga} gap-0.5 md:gap-2 px-1 md:px-2 py-2 md:py-3 items-center bg-[#d9d9d9]/60 mt-0.5 border-l-4 ${i < 8 ? 'border-[#12a856]' : i >= 14 ? 'border-red-600' : 'border-transparent'}`}>
+                  <span className={`w-4 h-4 md:w-6 md:h-6 flex items-center justify-center rounded-full text-[8px] md:text-[11px] text-white ${i < 8 ? 'bg-[#12a856]' : i >= 14 ? 'bg-red-600' : 'bg-zinc-500'}`}>
                     {t.pos}
                   </span>
-                  <div className="flex items-center gap-1 md:gap-3 min-w-0">
-                    <img src={t.logo} alt="" className="w-3.5 h-3.5 md:w-6 md:h-6 object-contain shrink-0" />
-                    <span className="truncate text-[9px] md:text-[13px] font-black">{t.nome}</span>
+                  <div className="flex items-center gap-1.5 md:gap-3 min-w-0">
+                    <img src={t.logo} alt="" className="w-4 h-4 md:w-6 md:h-6 object-contain shrink-0" />
+                    <span className="truncate text-[10px] md:text-[13px] font-black">{t.nome}</span>
                   </div>
-                  <span className="text-center text-[8px] md:text-[11px] text-zinc-600">{t.p}</span>
-                  <span className="text-center text-[8px] md:text-[11px] text-zinc-600">{t.w}</span>
-                  <span className="text-center text-[8px] md:text-[11px] text-zinc-600">{t.d}</span>
-                  <span className="text-center text-[8px] md:text-[11px] text-zinc-600">{t.l}</span>
-                  <span className={`text-center text-[8px] md:text-[11px] ${t.diff > 0 ? 'text-green-700' : t.diff < 0 ? 'text-red-700' : 'text-zinc-500'}`}>
+                  <span className="text-center text-[9px] md:text-[11px] text-zinc-600">{t.p}</span>
+                  <span className="text-center text-[9px] md:text-[11px] text-zinc-600 hidden md:block">{t.w}</span>
+                  <span className="text-center text-[9px] md:text-[11px] text-zinc-600 hidden md:block">{t.d}</span>
+                  <span className="text-center text-[9px] md:text-[11px] text-zinc-600 hidden md:block">{t.l}</span>
+                  <span className={`text-center text-[9px] md:text-[11px] ${t.diff > 0 ? 'text-green-700' : t.diff < 0 ? 'text-red-700' : 'text-zinc-500'}`}>
                     {t.diff > 0 ? `+${t.diff}` : t.diff}
                   </span>
                   <span className="text-center text-[7px] md:text-[10px] text-zinc-500 tracking-tighter">{t.gls}</span>
-                  <span className="text-center text-[10px] md:text-[15px] font-black text-zinc-900">{t.pts}</span>
+                  <span className="text-center text-[11px] md:text-[15px] font-black text-zinc-900">{t.pts}</span>
                 </div>
               ))}
             </div>
@@ -110,26 +111,29 @@ export default function TabelaPaulistao({ onBack }) {
           <section className="space-y-6 pb-20">
             {mataMata.map((f) => (
               <div key={f.fase} className="space-y-2 mb-6">
-                <div className="bg-zinc-800 text-white px-3 py-1.5 text-[9px] md:text-[10px] border-l-4 border-yellow-500 tracking-widest uppercase">{f.fase}</div>
+                <div className="bg-zinc-800 text-white px-3 py-1.5 text-[9px] md:text-[10px] border-l-4 border-yellow-500 tracking-widest uppercase flex items-center gap-2">
+                  <div className="w-1 h-1 bg-yellow-500 rounded-full animate-pulse"></div>
+                  {f.fase}
+                </div>
                 {f.jogos.map((j, idx) => (
                   <div key={idx} className="bg-[#d9d9d9]/80 rounded-sm shadow-md overflow-hidden border border-black/5">
                     <div className="flex justify-between items-center p-2 md:p-3 gap-1 md:gap-2">
-                      <div className="flex items-center justify-end gap-1 md:gap-2 flex-1 min-w-0">
-                        <span className="text-[9px] md:text-sm text-right truncate">{j.t1}</span>
-                        <img src={j.l1} alt="" className="w-4 h-4 md:w-7 md:h-7 object-contain shrink-0" />
+                      <div className="flex items-center justify-end gap-1.5 md:gap-3 flex-1 min-w-0">
+                        <span className="text-[10px] md:text-sm text-right truncate">{j.t1}</span>
+                        <img src={j.l1} alt="" className="w-5 h-5 md:w-7 md:h-7 object-contain shrink-0" />
                       </div>
-                      <div className="bg-[#1a2024] text-white px-2 py-1 rounded-sm skew-x-[-12deg] min-w-[55px] md:min-w-[65px] text-center shrink-0">
-                        <span className="skew-x-[12deg] inline-block font-black text-[11px] md:text-base">{j.p}</span>
+                      <div className="bg-[#1a2024] text-white px-2 py-1 rounded-sm skew-x-[-12deg] min-w-[55px] md:min-w-[75px] text-center shrink-0 border border-white/5">
+                        <span className="skew-x-[12deg] inline-block font-black text-[12px] md:text-base">{j.p}</span>
                       </div>
-                      <div className="flex items-center justify-start gap-1 md:gap-2 flex-1 min-w-0">
-                        <img src={j.l2} alt="" className="w-4 h-4 md:w-7 md:h-7 object-contain shrink-0" />
-                        <span className="text-[9px] md:text-sm text-left truncate">{j.t2}</span>
+                      <div className="flex items-center justify-start gap-1.5 md:gap-3 flex-1 min-w-0">
+                        <img src={j.l2} alt="" className="w-5 h-5 md:w-7 md:h-7 object-contain shrink-0" />
+                        <span className="text-[10px] md:text-sm text-left truncate">{j.t2}</span>
                       </div>
                     </div>
                     {j.pen && <div className="text-center text-[8px] md:text-[9px] text-red-600 pb-2 font-black italic">PÊNALTIS: {j.pen}</div>}
-                    {j.info && <div className="text-center text-[8px] md:text-[10px] text-zinc-600 py-1 bg-black/5 border-t border-black/5">{j.info}</div>}
+                    {j.info && <div className="text-center text-[7px] md:text-[10px] text-zinc-600 py-1 bg-black/5 border-t border-black/5 uppercase tracking-tighter">{j.info}</div>}
                     {j.campeao && (
-                      <div className="bg-yellow-500 text-black text-center py-1.5 text-[9px] md:text-xs font-black tracking-[3px] border-t border-yellow-600">
+                      <div className="bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 text-black text-center py-2 text-[10px] md:text-xs font-black tracking-[3px] border-t border-yellow-700">
                         CAMPEÃO: {j.campeao}
                       </div>
                     )}

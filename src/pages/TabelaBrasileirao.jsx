@@ -32,8 +32,8 @@ export default function TabelaBrasileirao({ onBack }) {
     return 'bg-zinc-500'; 
   };
 
-  // Grid responsivo: No mobile (padrão) as colunas são mais estreitas para caber tudo.
-  const gridLayout = "grid-cols-[18px_1fr_18px_18px_18px_18px_20px_35px_22px] md:grid-cols-[40px_1fr_35px_35px_35px_35px_45px_60px_45px]";
+  // Grid responsivo no padrão do site: esconde W, D, L no mobile
+  const gridLayout = "grid-cols-[25px_1fr_20px_0px_0px_0px_22px_35px_25px] md:grid-cols-[40px_1fr_35px_35px_35px_35px_45px_60px_45px]";
 
   return (
     <main className="flex-grow bg-[#959595] text-zinc-900 flex flex-col h-full overflow-hidden font-sans uppercase italic font-bold">
@@ -51,7 +51,7 @@ export default function TabelaBrasileirao({ onBack }) {
             alt="" 
             className="w-5 h-5 md:w-8 md:h-8 object-contain shrink-0" 
           />
-          <span className="text-[8px] md:text-xs text-zinc-400 tracking-tighter md:tracking-widest whitespace-nowrap uppercase">BRASILEIRÃO SÉRIE A 2026</span>
+          <span className="text-[9px] md:text-xs text-zinc-400 tracking-tighter md:tracking-widest whitespace-nowrap uppercase">BRASILEIRÃO SÉRIE A 2026</span>
         </div>
 
         <div className="w-8 md:w-16"></div> 
@@ -60,14 +60,15 @@ export default function TabelaBrasileirao({ onBack }) {
       <div className="flex-grow overflow-y-auto custom-scroll px-1 md:px-6 py-4">
         <div className="max-w-[900px] mx-auto">
           <div className="flex flex-col shadow-lg rounded-sm overflow-hidden">
+            
             {/* Cabeçalho das Colunas */}
             <div className={`grid ${gridLayout} gap-0.5 md:gap-2 px-1 md:px-3 py-2 text-[7px] md:text-[10px] bg-[#d9d9d9]/50 border-b border-zinc-800/10 text-zinc-500`}>
               <span className="text-center">#</span>
               <span>TIME</span>
               <span className="text-center">P</span>
-              <span className="text-center">W</span>
-              <span className="text-center">D</span>
-              <span className="text-center">L</span>
+              <span className="text-center hidden md:block">W</span>
+              <span className="text-center hidden md:block">D</span>
+              <span className="text-center hidden md:block">L</span>
               <span className="text-center">DF</span>
               <span className="text-center">GLS</span>
               <span className="text-center text-zinc-900 font-black">PTS</span>
@@ -75,33 +76,32 @@ export default function TabelaBrasileirao({ onBack }) {
 
             {/* Linhas dos Times */}
             {times.map((t, i) => (
-              <div key={t.nome} className={`grid ${gridLayout} gap-0.5 md:gap-2 px-1 md:px-3 py-2 items-center bg-[#d9d9d9]/70 mt-[1px] border-l-4 ${i >= 16 ? 'border-red-600' : 'border-transparent'}`}>
-                <span className={`w-3.5 h-3.5 md:w-6 md:h-6 flex items-center justify-center rounded-full text-[7px] md:text-[11px] text-white ${getPosColor(i)}`}>
+              <div key={t.nome} className={`grid ${gridLayout} gap-0.5 md:gap-2 px-1 md:px-3 py-2.5 md:py-3 items-center bg-[#d9d9d9]/70 mt-[1px] border-l-4 ${i >= 16 ? 'border-red-600' : 'border-transparent'}`}>
+                <span className={`w-4 h-4 md:w-6 md:h-6 flex items-center justify-center rounded-full text-[9px] md:text-[11px] text-white ${getPosColor(i)} shadow-sm`}>
                   {t.pos}
                 </span>
                 
-                <div className="flex items-center gap-1 md:gap-3 min-w-0">
-                  <img src={t.logo} alt="" className="w-3.5 h-3.5 md:w-6 md:h-6 object-contain shrink-0" />
-                  <span className="truncate text-[8px] md:text-[13px] font-black leading-tight uppercase">{t.nome}</span>
+                <div className="flex items-center gap-2 md:gap-3 min-w-0">
+                  <img src={t.logo} alt="" className="w-4 h-4 md:w-6 md:h-6 object-contain shrink-0" />
+                  <span className="truncate text-[10px] md:text-[13px] font-black leading-tight uppercase">{t.nome}</span>
                 </div>
 
-                <span className="text-center text-[8px] md:text-[11px] text-zinc-600 font-medium">{t.p}</span>
-                <span className="text-center text-[8px] md:text-[11px] text-zinc-600 font-medium">{t.w}</span>
-                <span className="text-center text-[8px] md:text-[11px] text-zinc-600 font-medium">{t.d}</span>
-                <span className="text-center text-[8px] md:text-[11px] text-zinc-600 font-medium">{t.l}</span>
+                <span className="text-center text-[9px] md:text-[11px] text-zinc-600">{t.p}</span>
+                <span className="text-center text-[9px] md:text-[11px] text-zinc-600 hidden md:block">{t.w}</span>
+                <span className="text-center text-[9px] md:text-[11px] text-zinc-600 hidden md:block">{t.d}</span>
+                <span className="text-center text-[9px] md:text-[11px] text-zinc-600 hidden md:block">{t.l}</span>
                 
-                <span className={`text-center text-[8px] md:text-[11px] ${t.diff > 0 ? 'text-green-700' : t.diff < 0 ? 'text-red-700' : 'text-zinc-500'}`}>
+                <span className={`text-center text-[9px] md:text-[11px] ${t.diff > 0 ? 'text-green-700' : t.diff < 0 ? 'text-red-700' : 'text-zinc-500'}`}>
                   {t.diff > 0 ? `+${t.diff}` : t.diff}
                 </span>
 
-                <span className="text-center text-[7px] md:text-[10px] text-zinc-500 tracking-tighter">{t.gls}</span>
+                <span className="text-center text-[8px] md:text-[10px] text-zinc-500 tracking-tighter">{t.gls}</span>
                 
-                <span className="text-center text-[10px] md:text-[15px] font-black text-zinc-900">{t.pts}</span>
+                <span className="text-center text-[11px] md:text-[15px] font-black text-zinc-900">{t.pts}</span>
               </div>
             ))}
           </div>
           
-          {/* Espaçamento final para o scroll não cortar a última linha */}
           <div className="pb-24"></div>
         </div>
       </div>

@@ -5,8 +5,13 @@ import Calendario from './pages/Calendario';
 import Estatisticas from './pages/Estatisticas';
 import Competicoes from './pages/Competicoes'; 
 import TabelaBrasileirao from './pages/TabelaBrasileirao';
-import TabelaPaulistao from './pages/TabelaPaulistao'; //  Importar a nova tabela
+import TabelaPaulistao from './pages/TabelaPaulistao';
 import TabelaLibertadores from './pages/TabelaLibertadores';
+import TabelaSudamericana from './pages/TabelaSudamericana';
+import TabelaCopaDoBrasil from './pages/TabelaCopadoBrasil';
+import TabelaSupercopaBR from './pages/TabelaSupercopaBR';
+import TabelaRecopa from './pages/TabelaRecopa';
+import TabelaMundial from './pages/TabelaMundial';
 
 function App() {
   const [telaAtiva, setTelaAtiva] = useState('home');
@@ -42,19 +47,28 @@ function App() {
           <Competicoes 
             onBack={() => setTelaAtiva('menu')} 
             onSelect={(comp) => {
-              // Adicionando a lógica para todas as competições
               if (comp.id === 'brasileirao') {
                 setTelaAtiva('tabela_brasileirao');
               } else if (comp.id === 'paulistao') {
                 setTelaAtiva('tabela_paulistao');
-              } else if (comp.id === 'libertadores') { // <--- Faltava este aqui
+              } else if (comp.id === 'libertadores') {
                 setTelaAtiva('tabela_libertadores');
+              } else if (comp.id === 'sudamericana') {
+                setTelaAtiva('tabela_sudamericana');
+              } else if (comp.id === 'copa_brasil') {
+                setTelaAtiva('tabela_copadobrasil');
+              } else if (comp.id === 'supercopa') {
+                setTelaAtiva('tabela_supercopabr');
+              } else if (comp.id === 'recopa') {
+                setTelaAtiva('tabela_recopa')
+              } else if (comp.id === 'mundial') {
+                setTelaAtiva('tabela_mundial')
               }
             }} 
           />
         )}
 
-        {/* 3. Renderização Condicional das Tabelas */}
+        {/* Renderização Condicional das Tabelas */}
         {telaAtiva === 'tabela_brasileirao' && (
           <TabelaBrasileirao onBack={() => setTelaAtiva('selecao')} />
         )}
@@ -65,6 +79,26 @@ function App() {
 
         {telaAtiva === 'tabela_libertadores' && (
           <TabelaLibertadores onBack={() => setTelaAtiva('selecao')} />
+        )}
+
+        {telaAtiva === 'tabela_sudamericana' && (
+          <TabelaSudamericana onBack={() => setTelaAtiva('selecao')} />
+        )}
+
+         {telaAtiva === 'tabela_copadobrasil' && (
+          <TabelaCopaDoBrasil onBack={() => setTelaAtiva('selecao')} />
+        )}
+
+        {telaAtiva === 'tabela_supercopabr' && (
+        <TabelaSupercopaBR onBack={() => setTelaAtiva('selecao')} />
+        )}
+
+        {telaAtiva === 'tabela_recopa' && (
+        <TabelaRecopa onBack={() => setTelaAtiva('selecao')} />
+        )}
+
+        {telaAtiva === 'tabela_mundial' && (
+        <TabelaMundial onBack={() => setTelaAtiva('selecao')} />
         )}
 
         {telaAtiva === 'calendario' && (
