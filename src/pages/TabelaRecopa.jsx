@@ -3,12 +3,18 @@ import React from 'react';
 export default function TabelaRecopa({ onBack }) {
   const dados = {
     t1: "Palmeiras", 
-    l1: "/times/palmeiras.png", 
+    l1: "/images/palmeiras.png", 
     t2: "LDU", 
     l2: "/images/ldu.png", 
     campeao: "PALMEIRAS",
-    ida: { placar: "1 x 1" },
-    volta: { placar: "2 x 0" }
+    ida: { 
+      placar: "1 x 1", 
+      local: "ESTÁDIO RODRIGO PAZ DELGADO" 
+    },
+    volta: { 
+      placar: "2 x 0", 
+      local: "ALLIANZ PARQUE" 
+    }
   };
 
   return (
@@ -17,7 +23,9 @@ export default function TabelaRecopa({ onBack }) {
       {/* HEADER RECOPA */}
       <div className="flex items-center justify-between p-2 md:p-4 bg-[#001E3D] border-b-2 border-yellow-500 shrink-0 shadow-2xl">
         <button onClick={onBack} className="text-white active:opacity-50 flex items-center gap-1 md:gap-2 shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="m15 18-6-6 6-6"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
           <span className="text-[9px] md:text-[10px]">VOLTAR</span>
         </button>
         
@@ -79,7 +87,7 @@ export default function TabelaRecopa({ onBack }) {
         <div className="w-full max-w-[850px] bg-gradient-to-r from-[#001E3D] via-[#003366] to-[#001E3D] text-white py-5 md:py-8 text-center rounded-sm border-t-4 border-yellow-500 shadow-2xl shrink-0 mb-4">
           <span className="text-[8px] md:text-xs text-yellow-500 tracking-[6px] md:tracking-[12px] block mb-2">CAMPEÃO DA RECOPA</span>
           <h2 className="text-2xl sm:text-4xl md:text-6xl font-black italic drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] flex items-center justify-center gap-3">
-            {dados.campeao}
+            {dados.campeao} 
           </h2>
         </div>
 
