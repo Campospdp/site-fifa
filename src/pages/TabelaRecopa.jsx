@@ -3,7 +3,7 @@ import React from 'react';
 export default function TabelaRecopa({ onBack }) {
   const dados = {
     t1: "Palmeiras", 
-    l1: "/images/palmeiras.png", 
+    l1: "/times/palmeiras.png", 
     t2: "LDU", 
     l2: "/images/ldu.png", 
     campeao: "PALMEIRAS",
