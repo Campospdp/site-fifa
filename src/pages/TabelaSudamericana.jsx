@@ -20,7 +20,7 @@ export default function TabelaSudamericana({ onBack }) {
         { pos: 4, nome: "U. Católica-EQU", p: 6, w: 1, d: 1, l: 4, diff: 0, gls: "8:8", pts: 4, logo: "/times/catolica-equ.png" },
       ]
     },
-    {
+      {
       nome: "GRUPO C",
       times: [
         { pos: 1, nome: "Cruzeiro", p: 6, w: 3, d: 3, l: 0, diff: 5, gls: "8:3", pts: 12, logo: "/times/cruzeiro.png" },
@@ -29,7 +29,7 @@ export default function TabelaSudamericana({ onBack }) {
         { pos: 4, nome: "U. Católica-EQU", p: 6, w: 1, d: 1, l: 4, diff: 0, gls: "8:8", pts: 4, logo: "/times/catolica-equ.png" },
       ]
     },
-    {
+      {
       nome: "GRUPO D",
       times: [
         { pos: 1, nome: "Cruzeiro", p: 6, w: 3, d: 3, l: 0, diff: 5, gls: "8:3", pts: 12, logo: "/times/cruzeiro.png" },
@@ -38,7 +38,7 @@ export default function TabelaSudamericana({ onBack }) {
         { pos: 4, nome: "U. Católica-EQU", p: 6, w: 1, d: 1, l: 4, diff: 0, gls: "8:8", pts: 4, logo: "/times/catolica-equ.png" },
       ]
     },
-    {
+      {
       nome: "GRUPO E",
       times: [
         { pos: 1, nome: "Cruzeiro", p: 6, w: 3, d: 3, l: 0, diff: 5, gls: "8:3", pts: 12, logo: "/times/cruzeiro.png" },
@@ -47,7 +47,7 @@ export default function TabelaSudamericana({ onBack }) {
         { pos: 4, nome: "U. Católica-EQU", p: 6, w: 1, d: 1, l: 4, diff: 0, gls: "8:8", pts: 4, logo: "/times/catolica-equ.png" },
       ]
     },
-    {
+      {
       nome: "GRUPO F",
       times: [
         { pos: 1, nome: "Cruzeiro", p: 6, w: 3, d: 3, l: 0, diff: 5, gls: "8:3", pts: 12, logo: "/times/cruzeiro.png" },
@@ -56,7 +56,7 @@ export default function TabelaSudamericana({ onBack }) {
         { pos: 4, nome: "U. Católica-EQU", p: 6, w: 1, d: 1, l: 4, diff: 0, gls: "8:8", pts: 4, logo: "/times/catolica-equ.png" },
       ]
     },
-    {
+      {
       nome: "GRUPO G",
       times: [
         { pos: 1, nome: "Cruzeiro", p: 6, w: 3, d: 3, l: 0, diff: 5, gls: "8:3", pts: 12, logo: "/times/cruzeiro.png" },
@@ -65,7 +65,7 @@ export default function TabelaSudamericana({ onBack }) {
         { pos: 4, nome: "U. Católica-EQU", p: 6, w: 1, d: 1, l: 4, diff: 0, gls: "8:8", pts: 4, logo: "/times/catolica-equ.png" },
       ]
     },
-    {
+      {
       nome: "GRUPO H",
       times: [
         { pos: 1, nome: "Cruzeiro", p: 6, w: 3, d: 3, l: 0, diff: 5, gls: "8:3", pts: 12, logo: "/times/cruzeiro.png" },
@@ -82,12 +82,12 @@ export default function TabelaSudamericana({ onBack }) {
       jogos: [
         { t1: "Corinthians", l1: "/times/corinthians.webp", p: "2 x 1", t2: "River Plate", l2: "/times/river.png", info: "AGREGADO" },
         { t1: "Flamengo", l1: "/times/flamengo.png", p: "3 x 0", t2: "Bolivar", l2: "/times/bolivar.png", info: "AGREGADO" },
-        { t1: "Corinthians", l1: "/times/corinthians.webp", p: "2 x 1", t2: "River Plate", l2: "/times/river.png", info: "AGREGADO" },
-        { t1: "Flamengo", l1: "/times/flamengo.png", p: "3 x 0", t2: "Bolivar", l2: "/times/bolivar.png", info: "AGREGADO" },
-        { t1: "Corinthians", l1: "/times/corinthians.webp", p: "2 x 1", t2: "River Plate", l2: "/times/river.png", info: "AGREGADO" },
-        { t1: "Flamengo", l1: "/times/flamengo.png", p: "3 x 0", t2: "Bolivar", l2: "/times/bolivar.png", info: "AGREGADO" },
-        { t1: "Corinthians", l1: "/times/corinthians.webp", p: "2 x 1", t2: "River Plate", l2: "/times/river.png", info: "AGREGADO" },
-        { t1: "Flamengo", l1: "/times/flamengo.png", p: "3 x 0", t2: "Bolivar", l2: "/times/bolivar.png", info: "AGREGADO" },
+        { t1: "Corinthians", l1: "/times/corinthians.webp", p: "1 x 1", t2: "Flamengo", l2: "/times/flamengo.png", pen: "(5-4)", info: "AGREGADO" },
+        { t1: "Corinthians", l1: "/times/corinthians.webp", p: "1 x 1", t2: "Flamengo", l2: "/times/flamengo.png", pen: "(5-4)", info: "AGREGADO" },
+        { t1: "Corinthians", l1: "/times/corinthians.webp", p: "1 x 1", t2: "Flamengo", l2: "/times/flamengo.png", pen: "(5-4)", info: "AGREGADO" },
+        { t1: "Corinthians", l1: "/times/corinthians.webp", p: "1 x 1", t2: "Flamengo", l2: "/times/flamengo.png", pen: "(5-4)", info: "AGREGADO" },
+        { t1: "Corinthians", l1: "/times/corinthians.webp", p: "1 x 1", t2: "Flamengo", l2: "/times/flamengo.png", pen: "(5-4)", info: "AGREGADO" },
+        { t1: "Corinthians", l1: "/times/corinthians.webp", p: "1 x 1", t2: "Flamengo", l2: "/times/flamengo.png", pen: "(5-4)", info: "AGREGADO" },
       ]
     },
     {
@@ -99,7 +99,7 @@ export default function TabelaSudamericana({ onBack }) {
         { t1: "Corinthians", l1: "/times/corinthians.webp", p: "1 x 1", t2: "Flamengo", l2: "/times/flamengo.png", pen: "(5-4)", info: "AGREGADO" },
       ]
     },
-    {
+      {
       fase: "SEMI FINAL",
       jogos: [
         { t1: "Corinthians", l1: "/times/corinthians.webp", p: "1 x 1", t2: "Flamengo", l2: "/times/flamengo.png", pen: "(5-4)", info: "AGREGADO" },
@@ -114,8 +114,8 @@ export default function TabelaSudamericana({ onBack }) {
     }
   ];
 
-  // Grid blindada para mobile: esconde colunas secundárias para focar em Time e PTS
-  const gridLayout = "grid-cols-[25px_1fr_25px_0px_0px_0px_25px_35px_30px] md:grid-cols-[45px_1fr_35px_35px_35px_35px_45px_60px_45px]";
+  // Grid de grupos com coluna de time reduzida (só logo)
+  const gridLayout = "grid-cols-[30px_50px_30px_25px_25px_25px_30px_45px_40px] md:grid-cols-[40px_70px_40px_40px_40px_40px_50px_70px_50px]";
 
   return (
     <main className="flex-grow bg-[#959595] text-zinc-900 flex flex-col h-full overflow-hidden font-sans uppercase italic font-bold">
@@ -127,113 +127,108 @@ export default function TabelaSudamericana({ onBack }) {
           <span className="text-[9px] md:text-[10px]">VOLTAR</span>
         </button>
         
-        <div className="flex items-center gap-1.5 md:gap-2 px-2 text-center">
+        <div className="flex items-center gap-1.5 md:gap-2 px-2 overflow-hidden">
           <img src="/images/sudamericana.png" alt="" className="w-5 h-5 md:w-8 md:h-8 object-contain shrink-0" />
-          <span className="text-[9px] md:text-xs text-zinc-400 tracking-widest whitespace-nowrap">CONMEBOL SUDAMERICANA 2026</span>
+          <span className="text-[9px] md:text-xs text-zinc-400 tracking-tighter md:tracking-widest whitespace-nowrap uppercase">CONMEBOL SUDAMERICANA 2026</span>
         </div>
         <div className="w-8 md:w-16"></div>
       </div>
 
       <div className="flex-grow overflow-y-auto custom-scroll px-1 md:px-6 py-4">
-        <div className="max-w-[1000px] mx-auto space-y-10">
+        <div className="max-w-[1050px] mx-auto space-y-10">
           
-          {/* FASE DE GRUPOS - Layout responsivo de 1 ou 2 colunas */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
+          {/* FASE DE GRUPOS - SEM NOMES (SÓ LOGOS) */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {grupos.map((grupo) => (
-              <section key={grupo.nome} className="flex flex-col rounded-sm overflow-hidden border border-black/10 shadow-lg bg-[#d9d9d9]/60">
-                <div className="bg-[#1a2024] text-white px-3 py-1.5 text-[10px] md:text-[12px] flex items-center gap-2">
-                  <div className="w-1 h-3 bg-white/30"></div>
-                  {grupo.nome}
+              <section key={grupo.nome} className="flex flex-col shadow-lg rounded-sm overflow-hidden bg-[#d9d9d9]/40 border border-black/5">
+                <div className="bg-[#1a2024] text-zinc-400 px-3 py-2 text-[10px] md:text-[11px] border-b border-white/5 flex justify-between">
+                  <span className="text-white">{grupo.nome}</span>
+                  <span className="opacity-50 tracking-widest">SUDAMERICANA</span>
                 </div>
 
-                {/* Cabeçalho da Tabela */}
-                <div className={`grid ${gridLayout} gap-1 px-1 md:px-3 py-2 text-[7px] md:text-[10px] bg-black/5 text-zinc-500 border-b border-black/5`}>
-                  <span className="text-center">#</span>
-                  <span>TIME</span>
-                  <span className="text-center">P</span>
-                  <span className="text-center hidden md:block">W</span>
-                  <span className="text-center hidden md:block">D</span>
-                  <span className="text-center hidden md:block">L</span>
-                  <span className="text-center">DF</span>
-                  <span className="text-center">GLS</span>
-                  <span className="text-center text-zinc-900 font-black">PTS</span>
-                </div>
-
-                {/* Times */}
-                {grupo.times.map((t, i) => (
-                  <div key={t.nome} className={`grid ${gridLayout} gap-1 px-1 md:px-3 py-2.5 items-center mt-[1px] bg-white/20 ${i < 2 ? 'border-l-4 border-yellow-500' : 'border-l-4 border-transparent'}`}>
-                    <span className="w-4 h-4 md:w-6 md:h-6 flex items-center justify-center rounded-sm text-[9px] md:text-[11px] text-white bg-[#1a2024]/80">
-                      {t.pos}
-                    </span>
-                    <div className="flex items-center gap-1.5 md:gap-3 min-w-0">
-                      <img src={t.logo} alt="" className="w-4 h-4 md:w-5 md:h-5 object-contain shrink-0" />
-                      <span className="truncate text-[10px] md:text-[13px] font-black leading-none">{t.nome}</span>
+                <div className="overflow-x-auto">
+                  <div className="min-w-0">
+                    <div className={`grid ${gridLayout} gap-1 px-1 md:px-3 py-2 text-[8px] md:text-[10px] bg-black/10 text-zinc-500 uppercase border-b border-black/5 items-center justify-items-center`}>
+                      <span>#</span>
+                      <span>ESC</span>
+                      <span>P</span>
+                      <span>W</span>
+                      <span>D</span>
+                      <span>L</span>
+                      <span>DF</span>
+                      <span>GLS</span>
+                      <span className="text-zinc-900 font-black">PTS</span>
                     </div>
-                    <span className="text-center text-zinc-600 text-[9px] md:text-sm">{t.p}</span>
-                    <span className="text-center text-zinc-600 hidden md:block">{t.w}</span>
-                    <span className="text-center text-zinc-600 hidden md:block">{t.d}</span>
-                    <span className="text-center text-zinc-600 hidden md:block">{t.l}</span>
-                    <span className={`text-center text-[9px] md:text-sm ${t.diff > 0 ? 'text-green-700' : t.diff < 0 ? 'text-red-700' : 'text-zinc-500'}`}>{t.diff}</span>
-                    <span className="text-center text-zinc-500 text-[7px] md:text-[10px] tracking-tighter">{t.gls}</span>
-                    <span className="text-center text-[12px] md:text-[15px] font-black bg-black/5 rounded-sm">{t.pts}</span>
+
+                    {grupo.times.map((t, i) => (
+                      <div key={t.nome} className={`grid ${gridLayout} gap-1 px-1 md:px-3 py-2.5 items-center justify-items-center bg-[#d9d9d9]/70 mt-[1px] border-l-4 ${i === 0 ? 'border-zinc-800' : i === 1 ? 'border-zinc-500' : 'border-transparent'}`}>
+                        <span className={`w-5 h-5 md:w-6 md:h-6 flex items-center justify-center rounded-full text-[10px] text-white ${i === 0 ? 'bg-[#1a2024]' : i === 1 ? 'bg-zinc-600' : 'bg-zinc-400'} shrink-0 shadow-sm`}>
+                          {t.pos}
+                        </span>
+                        <img src={t.logo} alt={t.nome} className="w-5 h-5 md:w-7 md:h-7 object-contain" />
+                        <span className="text-zinc-600 text-[10px] md:text-[12px]">{t.p}</span>
+                        <span className="text-zinc-600 text-[10px] md:text-[12px]">{t.w}</span>
+                        <span className="text-zinc-600 text-[10px] md:text-[12px]">{t.d}</span>
+                        <span className="text-zinc-600 text-[10px] md:text-[12px]">{t.l}</span>
+                        <span className={`text-[10px] md:text-[12px] ${t.diff > 0 ? 'text-green-700' : t.diff < 0 ? 'text-red-700' : 'text-zinc-500'}`}>{t.diff}</span>
+                        <span className="text-[8px] md:text-[10px] text-zinc-500 tracking-tighter">{t.gls}</span>
+                        <span className="w-full text-center py-0.5 text-[11px] md:text-[14px] font-black text-zinc-900 bg-black/5 rounded-sm">{t.pts}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </section>
             ))}
           </div>
 
-          {/* MATA-MATA */}
-          <div className="space-y-10 pb-24">
-            {mataMata.map((f, idx) => (
-              <section key={idx} className="space-y-3">
-                <div className="flex items-center gap-2 px-1">
-                  <div className="w-2 h-5 bg-[#1a2024]"></div>
-                  <h2 className="text-[12px] md:text-sm text-[#1a2024] tracking-widest font-black uppercase">{f.fase}</h2>
+          {/* MATA-MATA - Ajustado para não quebrar nomes no celular */}
+          <section className="space-y-8">
+            {mataMata.map((f) => (
+              <div key={f.fase} className="space-y-3">
+                <div className="flex items-center gap-2 px-1 border-l-4 border-[#1a2024]">
+                  <h2 className="text-[10px] md:text-xs text-zinc-600 tracking-widest uppercase ml-2">{f.fase}</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                  {f.jogos.map((j, jIdx) => (
-                    <div key={jIdx} className="bg-[#d9d9d9]/80 rounded-sm overflow-hidden border border-black/5 shadow-md">
-                      <div className="bg-black/10 px-4 py-1 flex justify-center items-center">
-                        <span className="text-[7px] md:text-[9px] text-zinc-500 tracking-widest uppercase">{j.info}</span>
-                      </div>
-
-                      <div className="flex justify-between items-center p-3 md:p-5 gap-2">
-                        <div className="flex items-center justify-end gap-2 md:gap-4 flex-1 min-w-0">
-                          <span className="text-[11px] md:text-[14px] font-black text-right truncate leading-tight">{j.t1}</span>
-                          <img src={j.l1} alt="" className="w-6 h-6 md:w-10 md:h-10 object-contain shrink-0" />
+                <div className={`grid grid-cols-1 ${f.jogos.length > 1 ? 'md:grid-cols-2' : 'md:grid-cols-1'} gap-3`}>
+                  {f.jogos.map((j, idx) => (
+                    <div key={idx} className="bg-[#d9d9d9]/70 rounded-sm shadow-sm overflow-hidden border border-black/5">
+                      <div className="flex justify-between items-center p-2 md:p-5 gap-1 md:gap-2">
+                        {/* Time 1 */}
+                        <div className="flex items-center justify-end gap-1.5 md:gap-3 flex-1 min-w-0">
+                          <span className="text-[10px] md:text-[13px] font-black text-right truncate leading-none uppercase">{j.t1}</span>
+                          <img src={j.l1} alt="" className="w-5 h-5 md:w-8 md:h-8 object-contain shrink-0" />
                         </div>
 
-                        <div className="bg-[#1a2024] text-white px-2 py-1 md:py-2 rounded-sm skew-x-[-12deg] min-w-[65px] md:min-w-[95px] text-center border border-white/10 shadow-lg">
-                          <span className="skew-x-[12deg] inline-block font-black text-[15px] md:text-2xl tracking-tighter">
-                            {j.p}
-                          </span>
+                        {/* Placar */}
+                        <div className="bg-[#1a2024] text-white px-2 py-1 md:py-1.5 rounded-sm skew-x-[-12deg] min-w-[55px] md:min-w-[85px] text-center border border-white/10 shadow-md shrink-0">
+                          <span className="skew-x-[12deg] inline-block font-black text-[12px] md:text-xl tracking-tighter leading-none">{j.p}</span>
                         </div>
 
-                        <div className="flex items-center justify-start gap-2 md:gap-4 flex-1 min-w-0">
-                          <img src={j.l2} alt="" className="w-6 h-6 md:w-10 md:h-10 object-contain shrink-0" />
-                          <span className="text-[11px] md:text-[14px] font-black text-left truncate leading-tight">{j.t2}</span>
+                        {/* Time 2 */}
+                        <div className="flex items-center justify-start gap-1.5 md:gap-3 flex-1 min-w-0">
+                          <img src={j.l2} alt="" className="w-5 h-5 md:w-8 md:h-8 object-contain shrink-0" />
+                          <span className="text-[10px] md:text-[13px] font-black text-left truncate leading-none uppercase">{j.t2}</span>
                         </div>
                       </div>
 
-                      {j.pen && (
-                        <div className="text-center text-[9px] md:text-[11px] text-red-600 pb-3 font-black tracking-widest">
-                          PÊNALTIS: {j.pen}
-                        </div>
-                      )}
+                      <div className="flex flex-col items-center bg-black/5 py-1">
+                        {j.pen && <span className="text-[8px] md:text-[10px] text-red-600 font-black italic mb-0.5">PÊNALTIS: {j.pen}</span>}
+                        {j.info && <span className="text-[7px] md:text-[9px] text-zinc-500 tracking-widest uppercase opacity-70">{j.info}</span>}
+                      </div>
 
                       {j.campeao && (
-                        <div className="bg-gradient-to-r from-[#1a2024] via-[#3a444d] to-[#1a2024] text-white text-center py-3 text-[12px] md:text-sm font-black tracking-[4px] border-t-2 border-yellow-500 shadow-inner">
-                           {j.campeao} 
+                        <div className="bg-[#1a2024] text-white text-center py-2 md:py-3 text-[10px] md:text-base font-black tracking-[3px] md:tracking-[4px] border-t-2 border-yellow-500">
+                           CAMPEÃO: {j.campeao} 
                         </div>
                       )}
                     </div>
                   ))}
                 </div>
-              </section>
+              </div>
             ))}
-          </div>
+          </section>
 
+          <div className="pb-24"></div>
         </div>
       </div>
     </main>

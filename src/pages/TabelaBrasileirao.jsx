@@ -32,8 +32,8 @@ export default function TabelaBrasileirao({ onBack }) {
     return 'bg-zinc-500'; 
   };
 
-  // GRID CORRIGIDA: No mobile removemos GLS e DF para sobrar espaço pros Pontos
-  const gridLayout = "grid-cols-[30px_1fr_25px_0px_0px_0px_0px_0px_35px] md:grid-cols-[40px_1fr_35px_35px_35px_35px_45px_60px_45px]";
+  // AJUSTE: Grid única que funciona em ambos, garantindo largura mínima no mobile
+  const gridLayout = "grid-cols-[35px_160px_35px_30px_30px_30px_35px_60px_40px] md:grid-cols-[40px_1fr_40px_40px_40px_40px_50px_70px_50px]";
 
   return (
     <main className="flex-grow bg-[#959595] text-zinc-900 flex flex-col h-full overflow-hidden font-sans uppercase italic font-bold">
@@ -52,58 +52,55 @@ export default function TabelaBrasileirao({ onBack }) {
         <div className="w-8 md:w-16"></div> 
       </div>
 
-      <div className="flex-grow overflow-y-auto custom-scroll px-1 md:px-6 py-4">
-        <div className="max-w-[900px] mx-auto">
+      {/* ÁREA DE SCROLL DA TABELA */}
+      <div className="flex-grow overflow-x-auto overflow-y-auto custom-scroll px-1 md:px-6 py-4">
+        {/* Definimos uma largura mínima para a tabela não esmagar no mobile */}
+        <div className="max-w-[900px] min-w-[480px] mx-auto">
           <div className="flex flex-col shadow-lg rounded-sm overflow-hidden bg-[#d9d9d9]/40">
             
-            {/* Cabeçalho */}
-            <div className={`grid ${gridLayout} gap-1 md:gap-2 px-1 md:px-3 py-2 text-[8px] md:text-[10px] bg-black/10 text-zinc-500 border-b border-black/10`}>
+            {/* Cabeçalho - REMOVIDO 'hidden' das colunas */}
+            <div className={`grid ${gridLayout} gap-1 px-1 md:px-3 py-2 text-[9px] md:text-[10px] bg-black/10 text-zinc-500 border-b border-black/10 items-center`}>
               <span className="text-center">#</span>
               <span>TIME</span>
               <span className="text-center">P</span>
-              <span className="text-center hidden md:block">W</span>
-              <span className="text-center hidden md:block">D</span>
-              <span className="text-center hidden md:block">L</span>
-              <span className="text-center hidden md:block">DF</span>
-              <span className="text-center hidden md:block">GLS</span>
+              <span className="text-center">W</span>
+              <span className="text-center">D</span>
+              <span className="text-center">L</span>
+              <span className="text-center">DF</span>
+              <span className="text-center">GLS</span>
               <span className="text-center text-zinc-900 font-black">PTS</span>
             </div>
 
-            {/* Linhas */}
+            {/* Linhas - REMOVIDO 'hidden' das colunas */}
             {times.map((t, i) => (
-              <div key={t.nome} className={`grid ${gridLayout} gap-1 md:gap-2 px-1 md:px-3 py-2.5 items-center bg-[#d9d9d9]/70 mt-[1px] border-l-4 ${i >= 16 ? 'border-red-600' : 'border-transparent'}`}>
+              <div key={t.nome} className={`grid ${gridLayout} gap-1 px-1 md:px-3 py-2.5 items-center bg-[#d9d9d9]/70 mt-[1px] border-l-4 ${i >= 16 ? 'border-red-600' : 'border-transparent'}`}>
                 
-                {/* Posição */}
                 <span className={`w-5 h-5 md:w-7 md:h-7 flex items-center justify-center rounded-full text-[10px] md:text-[12px] text-white ${getPosColor(i)} shadow-sm shrink-0 mx-auto`}>
                   {t.pos}
                 </span>
                 
-                {/* Time */}
                 <div className="flex items-center gap-2 min-w-0">
-                  <img src={t.logo} alt="" className="w-5 h-5 md:w-6 md:h-6 object-contain shrink-0" />
-                  <span className="truncate text-[11px] md:text-[14px] font-black leading-none">{t.nome}</span>
+                  <img src={t.logo} alt="" className="w-4 h-4 md:w-6 md:h-6 object-contain shrink-0" />
+                  <span className="truncate text-[10px] md:text-[14px] font-black leading-none">{t.nome}</span>
                 </div>
 
-                {/* Dados Numéricos */}
                 <span className="text-center text-[10px] md:text-[12px] text-zinc-600">{t.p}</span>
-                <span className="text-center hidden md:block text-zinc-600">{t.w}</span>
-                <span className="text-center hidden md:block text-zinc-600">{t.d}</span>
-                <span className="text-center hidden md:block text-zinc-600">{t.l}</span>
+                <span className="text-center text-[10px] md:text-[12px] text-zinc-600">{t.w}</span>
+                <span className="text-center text-[10px] md:text-[12px] text-zinc-600">{t.d}</span>
+                <span className="text-center text-[10px] md:text-[12px] text-zinc-600">{t.l}</span>
                 
-                <span className={`text-center hidden md:block ${t.diff > 0 ? 'text-green-700' : t.diff < 0 ? 'text-red-700' : 'text-zinc-500'}`}>
+                <span className={`text-center text-[10px] md:text-[12px] ${t.diff > 0 ? 'text-green-700' : t.diff < 0 ? 'text-red-700' : 'text-zinc-500'}`}>
                   {t.diff > 0 ? `+${t.diff}` : t.diff}
                 </span>
 
-                <span className="text-center hidden md:block text-[10px] text-zinc-500">{t.gls}</span>
+                <span className="text-center text-[9px] md:text-[10px] text-zinc-500">{t.gls}</span>
                 
-                {/* Pontos - Destacado */}
-                <span className="text-center text-[12px] md:text-[16px] font-black text-zinc-900 bg-black/5 rounded-sm py-0.5">
+                <span className="text-center text-[11px] md:text-[16px] font-black text-zinc-900 bg-black/5 rounded-sm py-0.5">
                   {t.pts}
                 </span>
               </div>
             ))}
           </div>
-          
           <div className="pb-10"></div>
         </div>
       </div>
