@@ -9,8 +9,8 @@ export default function TabelaMundial({ onBack }) {
     t3: "Al-Ahly",
     l3: "/images/al-ahly.png",
     campeao: "PALMEIRAS",
-    semi: { placar: "2 x 0", adversario: "Al-Ahly", local: "STADIUM 974, DOHA" },
-    final: { placar: "1 x 0", local: "LUSAIL STADIUM, LUSAIL" }
+    semi: { placar: "2 x 0", adversario: "Al-Ahly" },
+    final: { placar: "1 x 0" }
   };
 
   const fases = [
@@ -45,51 +45,55 @@ export default function TabelaMundial({ onBack }) {
         <div className="w-8 md:w-16"></div>
       </div>
 
-      <div className="flex-grow overflow-y-auto custom-scroll px-1 md:px-6 py-4">
-        <div className="max-w-[800px] mx-auto space-y-8">
+      <div className="flex-grow overflow-y-auto custom-scroll px-1 md:px-6 py-6">
+        <div className="max-w-[700px] mx-auto space-y-10">
           
           {fases.map((f, fIdx) => (
-            <section key={fIdx} className="space-y-3">
-              {/* Título da Fase */}
+            <section key={fIdx} className="space-y-4">
+              {/* Título da Fase - Padrão do Site */}
               <div className="flex items-center gap-2 px-1">
-                <div className="w-1 h-4 bg-[#1a2024]"></div>
-                <h2 className="text-[10px] md:text-xs text-zinc-600 tracking-widest uppercase">
+                <div className="w-2 h-5 bg-[#1a2024]"></div>
+                <h2 className="text-[11px] md:text-sm text-zinc-800 tracking-[0.2em] font-black uppercase">
                   {f.fase}
                 </h2>
               </div>
 
               {/* Jogos da Fase */}
-              <div className="grid grid-cols-1 gap-3">
+              <div className="grid grid-cols-1 gap-4">
                 {f.jogos.map((j, jIdx) => (
-                  <div key={jIdx} className="bg-[#d9d9d9]/70 rounded-sm shadow-sm overflow-hidden border border-black/5 relative">
-                    <div className="flex justify-between items-center p-3 md:p-4 gap-2">
+                  <div key={jIdx} className="bg-[#d9d9d9]/80 rounded-sm shadow-xl overflow-hidden border border-black/5 relative">
+                    
+                    {/* Local do Jogo */}
+                    <div className="bg-black/10 py-1.5 flex justify-center items-center border-b border-black/5">
+                      <span className="text-[7px] md:text-[10px] text-zinc-600 tracking-[0.2em] font-black opacity-80 uppercase">{j.info}</span>
+                    </div>
+
+                    <div className="flex justify-between items-center p-4 md:p-8 gap-2">
                       {/* Time 1 */}
-                      <div className="flex items-center justify-end gap-2 md:gap-3 flex-1 min-w-0">
-                        <span className="text-[10px] md:text-[13px] font-black text-right truncate leading-tight uppercase">{j.t1}</span>
-                        <img src={j.l1} alt="" className="w-6 h-6 md:w-9 md:h-9 object-contain shrink-0" />
+                      <div className="flex items-center justify-end gap-3 md:gap-5 flex-1 min-w-0">
+                        <span className="text-[11px] md:text-[16px] font-black text-right truncate leading-tight uppercase">{j.t1}</span>
+                        <img src={j.l1} alt="" className="w-7 h-7 md:w-12 md:h-12 object-contain shrink-0 drop-shadow-md" />
                       </div>
 
-                      {/* Placar */}
-                      <div className="bg-[#1a2024] text-white px-2 py-1 rounded-sm skew-x-[-12deg] min-w-[60px] md:min-w-[85px] text-center border border-white/10 shadow-md">
-                        <span className="skew-x-[12deg] inline-block font-black text-[14px] md:text-xl tracking-tighter leading-none">{j.p}</span>
+                      {/* Placar - Skew Padrão */}
+                      <div className="bg-[#1a2024] text-white px-3 py-1.5 md:px-5 md:py-2.5 rounded-sm skew-x-[-12deg] min-w-[70px] md:min-w-[100px] text-center border border-white/10 shadow-2xl">
+                        <span className="skew-x-[12deg] inline-block font-black text-[18px] md:text-3xl tracking-tighter leading-none">{j.p}</span>
                       </div>
 
                       {/* Time 2 */}
-                      <div className="flex items-center justify-start gap-2 md:gap-3 flex-1 min-w-0">
-                        <img src={j.l2} alt="" className="w-6 h-6 md:w-9 md:h-9 object-contain shrink-0" />
-                        <span className="text-[10px] md:text-[13px] font-black text-left truncate leading-tight uppercase">{j.t2}</span>
+                      <div className="flex items-center justify-start gap-3 md:gap-5 flex-1 min-w-0">
+                        <img src={j.l2} alt="" className="w-7 h-7 md:w-12 md:h-12 object-contain shrink-0 drop-shadow-md" />
+                        <span className="text-[11px] md:text-[16px] font-black text-left truncate leading-tight uppercase">{j.t2}</span>
                       </div>
                     </div>
 
-                    {/* Detalhes do Jogo */}
-                    <div className="flex flex-col items-center bg-black/5 py-1 border-t border-black/5">
-                      <span className="text-[7px] md:text-[9px] text-zinc-500 tracking-widest uppercase opacity-70">{j.info}</span>
-                    </div>
-
-                    {/* Banner Campeão integrado ao Card */}
+                    {/* Banner Campeão - Destaque de Mundial */}
                     {j.campeao && (
-                      <div className="bg-[#1a2024] text-white text-center py-2.5 text-[11px] md:text-sm font-black tracking-[4px] border-t-2 border-white/20">
-                        {j.campeao} 
+                      <div className="bg-gradient-to-r from-[#1a2024] via-[#2a343d] to-[#1a2024] text-white text-center py-4 border-t-2 border-white/10 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-white/5 animate-pulse"></div>
+                        <span className="relative z-10 text-xl md:text-4xl font-black tracking-[0.15em] italic italic uppercase bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent">
+                          {j.campeao} 
+                        </span>
                       </div>
                     )}
                   </div>

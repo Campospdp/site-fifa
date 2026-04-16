@@ -3,7 +3,8 @@ import Home from './pages/HomeTemp';
 import Menu from './pages/Menu';
 import Calendario from './pages/Calendario';
 import Estatisticas from './pages/Estatisticas';
-import Competicoes from './pages/Competicoes'; 
+import Competicoes from './pages/Competicoes';
+import Transferencias from './pages/Transferencias';
 import TabelaBrasileirao from './pages/TabelaBrasileirao';
 import TabelaPaulistao from './pages/TabelaPaulistao';
 import TabelaLibertadores from './pages/TabelaLibertadores';
@@ -40,6 +41,7 @@ function App() {
             onGoCalendario={() => setTelaAtiva('calendario')} 
             onGoEstatisticas={() => setTelaAtiva('estatisticas')}
             onGoCompeticoes={() => setTelaAtiva('selecao')} 
+            onGoTransferencias={() => setTelaAtiva('transferencias')}
           />
         )}
 
@@ -85,7 +87,7 @@ function App() {
           <TabelaSudamericana onBack={() => setTelaAtiva('selecao')} />
         )}
 
-         {telaAtiva === 'tabela_copadobrasil' && (
+        {telaAtiva === 'tabela_copadobrasil' && (
           <TabelaCopaDoBrasil onBack={() => setTelaAtiva('selecao')} />
         )}
 
@@ -107,6 +109,9 @@ function App() {
 
         {telaAtiva === 'estatisticas' && (
           <Estatisticas onBack={() => setTelaAtiva('menu')} />
+        )}
+        {telaAtiva === 'transferencias' && (
+          <Transferencias onBack={() => setTelaAtiva('menu')} />
         )}
       </main>
 

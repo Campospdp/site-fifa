@@ -9,11 +9,9 @@ export default function TabelaRecopa({ onBack }) {
     campeao: "PALMEIRAS",
     ida: { 
       placar: "1 x 1",  
-      local: "ESTÁDIO RODRIGO PAZ DELGADO"
     },
     volta: { 
       placar: "2 x 0", 
-      local: "ALLIANZ PARQUE"
     }
   };
 
@@ -39,50 +37,51 @@ export default function TabelaRecopa({ onBack }) {
         <div className="w-8 md:w-16"></div>
       </div>
 
-      <div className="flex-grow overflow-y-auto custom-scroll px-1 md:px-6 py-4">
-        <div className="max-w-[800px] mx-auto space-y-6">
+      <div className="flex-grow overflow-y-auto custom-scroll px-1 md:px-6 py-6">
+        <div className="max-w-[700px] mx-auto space-y-8">
           
-          {/* LISTA DE JOGOS NO PADRÃO */}
-          <div className="space-y-6">
+          <div className="space-y-10">
             {jogos.map((j, idx) => (
-              <section key={idx} className="space-y-2">
+              <section key={idx} className="space-y-3">
                 {/* Indicador de Fase */}
                 <div className="flex items-center gap-2 px-1">
-                  <div className="w-1 h-4 bg-[#1a2024]"></div>
-                  <h2 className="text-[10px] md:text-xs text-zinc-600 tracking-widest uppercase">{j.fase}</h2>
+                  <div className={`w-2 h-5 ${j.campeao ? 'bg-blue-600' : 'bg-[#1a2024]'}`}></div>
+                  <h2 className="text-[11px] md:text-sm text-zinc-800 tracking-widest font-black uppercase">{j.fase}</h2>
                 </div>
 
                 {/* Card do Jogo */}
-                <div className="bg-[#d9d9d9]/70 rounded-sm overflow-hidden border border-black/5 shadow-sm">
-                  <div className="bg-black/5 px-4 py-1 flex justify-between items-center border-b border-black/5">
-                    <span className="text-[7px] md:text-[9px] text-zinc-500 tracking-widest uppercase opacity-70">{j.local}</span>
+                <div className={`bg-[#d9d9d9]/80 rounded-sm overflow-hidden border border-black/5 shadow-xl ${j.campeao ? 'ring-2 ring-black/5' : ''}`}>
+                  <div className="bg-black/10 px-4 py-2 flex justify-center items-center border-b border-black/5">
+                    <span className="text-[8px] md:text-[10px] text-zinc-600 tracking-[0.2em] font-black opacity-80 uppercase">{j.local}</span>
                   </div>
 
-                  <div className="flex justify-between items-center p-3 md:p-6 gap-2">
+                  <div className="flex justify-between items-center p-4 md:p-8 gap-2">
                     {/* Mandante */}
-                    <div className="flex items-center justify-end gap-2 md:gap-4 flex-1 min-w-0">
-                      <span className="text-[10px] md:text-[14px] font-black text-right truncate leading-tight uppercase">{j.mandante}</span>
-                      <img src={j.logoM} alt="" className="w-6 h-6 md:w-10 md:h-10 object-contain shrink-0" />
+                    <div className="flex items-center justify-end gap-3 md:gap-5 flex-1 min-w-0">
+                      <span className="text-[11px] md:text-[16px] font-black text-right truncate leading-tight uppercase">{j.mandante}</span>
+                      <img src={j.logoM} alt="" className="w-7 h-7 md:w-12 md:h-12 object-contain shrink-0 drop-shadow-md" />
                     </div>
 
-                    {/* Placar Estilizado (Skew) */}
-                    <div className="bg-[#1a2024] text-white px-2 py-1 rounded-sm skew-x-[-12deg] min-w-[65px] md:min-w-[90px] text-center border border-white/10 shadow-md">
-                      <span className="skew-x-[12deg] inline-block font-black text-[14px] md:text-2xl tracking-tighter leading-none">
+                    {/* Placar (Skew) */}
+                    <div className="bg-[#1a2024] text-white px-3 py-1.5 md:px-6 md:py-3 rounded-sm skew-x-[-12deg] min-w-[75px] md:min-w-[110px] text-center border border-white/10 shadow-2xl">
+                      <span className="skew-x-[12deg] inline-block font-black text-[18px] md:text-3xl tracking-tighter leading-none">
                         {j.placar}
                       </span>
                     </div>
 
                     {/* Visitante */}
-                    <div className="flex items-center justify-start gap-2 md:gap-4 flex-1 min-w-0">
-                      <img src={j.logoV} alt="" className="w-6 h-6 md:w-10 md:h-10 object-contain shrink-0" />
-                      <span className="text-[10px] md:text-[14px] font-black text-left truncate leading-tight uppercase">{j.visitante}</span>
+                    <div className="flex items-center justify-start gap-3 md:gap-5 flex-1 min-w-0">
+                      <img src={j.logoV} alt="" className="w-7 h-7 md:w-12 md:h-12 object-contain shrink-0 drop-shadow-md" />
+                      <span className="text-[11px] md:text-[16px] font-black text-left truncate leading-tight uppercase">{j.visitante}</span>
                     </div>
                   </div>
 
-                  {/* Banner de Campeão (Se houver) */}
+                  {/* Banner de Campeão - Estilo Faixa de Título */}
                   {j.campeao && (
-                    <div className="bg-[#1a2024] text-white text-center py-3 text-[11px] md:text-sm font-black tracking-[4px] border-t-2 border-white/10 shadow-inner">
-                       {j.campeao} 
+                    <div className="bg-gradient-to-r from-[#1a2024] via-[#2a343d] to-[#1a2024] text-white text-center py-4 border-t-2 border-white/10">
+                        <span className="text-xl md:text-4xl font-black tracking-[0.1em] italic uppercase">
+                           {j.campeao} 
+                        </span>
                     </div>
                   )}
                 </div>
