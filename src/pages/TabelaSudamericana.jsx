@@ -116,7 +116,8 @@ export default function TabelaSudamericana({ onBack }) {
 
   // Reduzimos o espaço do nome do time no mobile (de 140px para 100px) 
 // e encurtamos as colunas de estatísticas.
-const gridLayout = "grid-cols-[25px_100px_25px_25px_25px_25px_25px_45px_35px] md:grid-cols-[40px_1fr_40px_40px_40px_40px_50px_70px_50px]";
+// Diminuímos os espaços e demos um tamanho fixo para o nome do time
+const gridLayout = "grid-cols-[25px_1fr_25px_25px_25px_25px_25px_45px_35px] md:grid-cols-[40px_1fr_40px_40px_40px_40px_50px_70px_50px]";
 
   return (
     <main className="flex-grow bg-[#959595] text-zinc-900 flex flex-col h-full overflow-hidden font-sans uppercase italic font-bold">
@@ -138,54 +139,56 @@ const gridLayout = "grid-cols-[25px_100px_25px_25px_25px_25px_25px_45px_35px] md
       <div className="flex-grow overflow-y-auto custom-scroll px-1 md:px-6 py-4">
         <div className="max-w-[950px] mx-auto space-y-10">
           
-          {/* FASE DE GRUPOS - Scroll Horizontal Habilitado */}
-          <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {grupos.map((grupo) => (
-              <div key={grupo.nome} className="flex flex-col shadow-lg rounded-sm overflow-hidden bg-[#d9d9d9]/40 border border-black/5">
-                <div className="bg-[#1a2024] text-zinc-400 px-3 py-2 text-[10px] md:text-[11px] border-b border-white/5 flex justify-between">
-                  <span className="text-white">{grupo.nome}</span>
-                  <span className="opacity-50 tracking-widest">FASE DE GRUPOS</span>
+          {/* LIGA GERAL - AJUSTADA PARA NÃO CORTAR */}
+          <section className="flex flex-col shadow-lg rounded-sm overflow-hidden bg-[#d9d9d9]/40 border border-black/5">
+            <div className="bg-[#1a2024] text-zinc-400 px-3 py-2 text-[10px] md:text-[11px] border-b border-white/5 flex justify-between">
+              <span className="text-white">CLASSIFICAÇÃO GERAL</span>
+              <span className="opacity-50 tracking-widest">LIGA</span>
+            </div>
+
+            {/* AQUI COMEÇA A CORREÇÃO */}
+            <div className="overflow-x-auto custom-scroll">
+              <div className="min-w-[350px] md:min-w-full">
+                {/* Cabeçalho do Grid */}
+                <div className={`grid ${gridLayout} gap-0.5 px-1 md:px-3 py-2 text-[9px] md:text-[10px] bg-black/10 text-zinc-500 uppercase border-b border-black/5 items-center`}>
+                  <span className="text-center">#</span>
+                  <span>TIME</span>
+                  <span className="text-center">P</span>
+                  <span className="text-center">W</span>
+                  <span className="text-center">D</span>
+                  <span className="text-center">L</span>
+                  <span className="text-center">DF</span>
+                  <span className="text-center">GLS</span>
+                  <span className="text-center text-zinc-900 font-black">PTS</span>
                 </div>
 
-                {/* Div de scroll apenas para a tabela do grupo */}
-                <div className="overflow-x-auto">
-                  <div className="min-w-[440px]">
-                    <div className={`grid ${gridLayout} gap-1 px-1 md:px-3 py-2 text-[9px] md:text-[10px] bg-black/10 text-zinc-500 uppercase border-b border-black/5 items-center`}>
-                      <span className="text-center">#</span>
-                      <span>TIME</span>
-                      <span className="text-center">P</span>
-                      <span className="text-center">W</span>
-                      <span className="text-center">D</span>
-                      <span className="text-center">L</span>
-                      <span className="text-center">DF</span>
-                      <span className="text-center">GLS</span>
-                      <span className="text-center text-zinc-900 font-black">PTS</span>
+                {/* Linhas dos Times */}
+                {ligaGeral.map((t, i) => (
+                  <div key={t.nome} className={`grid ${gridLayout} gap-0.5 px-1 md:px-3 py-2.5 items-center bg-[#d9d9d9]/70 mt-[1px] border-l-4 ${i < 8 ? 'border-green-600' : i >= 14 ? 'border-red-600' : 'border-transparent'}`}>
+                    {/* Posição */}
+                    <span className="text-[10px] md:text-[11px] text-center">{t.pos}</span>
+                    
+                    {/* Time com truncate para não quebrar */}
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <img src={t.logo} alt="" className="w-4 h-4 md:w-5 md:h-5 object-contain shrink-0" />
+                      <span className="truncate text-[9px] md:text-[14px] font-black leading-none uppercase">{t.nome}</span>
                     </div>
 
-                    {grupo.times.map((t, i) => (
-                      <div key={t.nome} className={`grid ${gridLayout} gap-1 px-1 md:px-3 py-2.5 items-center bg-[#d9d9d9]/70 mt-[1px] border-l-4 ${i < 2 ? 'border-green-600' : 'border-transparent'}`}>
-                        <span className={`w-5 h-5 md:w-6 md:h-6 flex items-center justify-center rounded-full text-[10px] md:text-[11px] text-white ${i < 2 ? 'bg-[#1a2024]' : 'bg-zinc-500'} shrink-0 mx-auto`}>
-                          {t.pos}
-                        </span>
-                        <div className="flex items-center gap-2 min-w-0">
-                          <img src={t.logo} alt="" className="w-4 h-4 md:w-5 md:h-5 object-contain shrink-0" />
-                          <span className="truncate text-[10px] md:text-[13px] font-black leading-tight uppercase">{t.nome}</span>
-                        </div>
-                        <span className="text-center text-[10px] md:text-[11px] text-zinc-600">{t.p}</span>
-                        <span className="text-center text-[10px] md:text-[11px] text-zinc-600">{t.w}</span>
-                        <span className="text-center text-[10px] md:text-[11px] text-zinc-600">{t.d}</span>
-                        <span className="text-center text-[10px] md:text-[11px] text-zinc-600">{t.l}</span>
-                        <span className={`text-center text-[10px] ${t.diff > 0 ? 'text-green-700' : t.diff < 0 ? 'text-red-700' : 'text-zinc-500'}`}>
-                          {t.diff > 0 ? `+${t.diff}` : t.diff}
-                        </span>
-                        <span className="text-center text-[9px] md:text-[10px] text-zinc-500 tracking-tighter">{t.gls}</span>
-                        <span className="text-center text-[12px] md:text-[15px] font-black text-zinc-900 bg-black/5 rounded-sm">{t.pts}</span>
-                      </div>
-                    ))}
+                    {/* Estatísticas com fontes menores no mobile */}
+                    <span className="text-center text-[9px] md:text-[12px] text-zinc-600">{t.p}</span>
+                    <span className="text-center text-[9px] md:text-[12px] text-zinc-600">{t.w}</span>
+                    <span className="text-center text-[9px] md:text-[12px] text-zinc-600">{t.d}</span>
+                    <span className="text-center text-[9px] md:text-[12px] text-zinc-600">{t.l}</span>
+                    <span className="text-center text-[9px] md:text-[12px] font-bold">{t.diff}</span>
+                    <span className="text-center text-[8px] md:text-[10px] text-zinc-500 tracking-tighter">{t.gls}</span>
+                    
+                    {/* Pontos */}
+                    <span className="text-center text-[11px] md:text-[15px] font-black text-zinc-900 bg-black/5 rounded-sm">{t.pts}</span>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
+            {/* FIM DA CORREÇÃO */}
           </section>
 
           {/* MATA-MATA - Ajustado para não quebrar nomes no celular */}

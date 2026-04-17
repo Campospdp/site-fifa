@@ -32,8 +32,9 @@ export default function TabelaBrasileirao({ onBack }) {
     return 'bg-zinc-500'; 
   };
 
-  // AJUSTE: Grid única que funciona em ambos, garantindo largura mínima no mobile
-  const gridLayout = "grid-cols-[25px_100px_25px_25px_25px_25px_25px_45px_35px] md:grid-cols-[40px_1fr_40px_40px_40px_40px_50px_70px_50px]";
+  // Diminuímos os espaços e demos um tamanho fixo para o nome do time
+    const gridLayout = "grid-cols-[25px_1fr_25px_25px_25px_25px_25px_45px_35px] md:grid-cols-[40px_1fr_40px_40px_40px_40px_50px_70px_50px]";
+
   return (
     <main className="flex-grow bg-[#959595] text-zinc-900 flex flex-col h-full overflow-hidden font-sans uppercase italic font-bold">
       
@@ -51,56 +52,66 @@ export default function TabelaBrasileirao({ onBack }) {
         <div className="w-8 md:w-16"></div>
       </div>
 
-      {/* ÁREA DE SCROLL DA TABELA */}
-      <div className="flex-grow overflow-x-auto overflow-y-auto custom-scroll px-1 md:px-6 py-4">
-        {/* Definimos uma largura mínima para a tabela não esmagar no mobile */}
-        <div className="max-w-[900px] min-w-[480px] mx-auto">
-          <div className="flex flex-col shadow-lg rounded-sm overflow-hidden bg-[#d9d9d9]/40">
-            
-            {/* Cabeçalho - REMOVIDO 'hidden' das colunas */}
-            <div className={`grid ${gridLayout} gap-1 px-1 md:px-3 py-2 text-[9px] md:text-[10px] bg-black/10 text-zinc-500 border-b border-black/10 items-center`}>
-              <span className="text-center">#</span>
-              <span>TIME</span>
-              <span className="text-center">P</span>
-              <span className="text-center">W</span>
-              <span className="text-center">D</span>
-              <span className="text-center">L</span>
-              <span className="text-center">DF</span>
-              <span className="text-center">GLS</span>
-              <span className="text-center text-zinc-900 font-black">PTS</span>
-            </div>
-
-            {/* Linhas - REMOVIDO 'hidden' das colunas */}
-            {times.map((t, i) => (
-              <div key={t.nome} className={`grid ${gridLayout} gap-1 px-1 md:px-3 py-2.5 items-center bg-[#d9d9d9]/70 mt-[1px] border-l-4 ${i >= 16 ? 'border-red-600' : 'border-transparent'}`}>
+      {/* ÁREA DE SCROLL VERTICAL */}
+      <div className="flex-grow overflow-y-auto custom-scroll px-1 md:px-6 py-4">
+        <div className="max-w-[900px] mx-auto">
+          
+          {/* CONTAINER DE SCROLL HORIZONTAL (Importante para não esmagar) */}
+          <div className="flex flex-col shadow-lg rounded-sm overflow-hidden bg-[#d9d9d9]/40 border border-black/5">
+            <div className="overflow-x-auto custom-scroll">
+              <div className="min-w-[360px] md:min-w-full">
                 
-                <span className={`w-5 h-5 md:w-7 md:h-7 flex items-center justify-center rounded-full text-[10px] md:text-[12px] text-white ${getPosColor(i)} shadow-sm shrink-0 mx-auto`}>
-                  {t.pos}
-                </span>
-                
-                <div className="flex items-center gap-2 min-w-0">
-                  <img src={t.logo} alt="" className="w-4 h-4 md:w-6 md:h-6 object-contain shrink-0" />
-                  <span className="truncate text-[10px] md:text-[14px] font-black leading-none">{t.nome}</span>
+                {/* Cabeçalho do Grid */}
+                <div className={`grid ${gridLayout} gap-0.5 px-1 md:px-3 py-2 text-[9px] md:text-[10px] bg-black/10 text-zinc-500 uppercase border-b border-black/5 items-center`}>
+                  <span className="text-center">#</span>
+                  <span>TIME</span>
+                  <span className="text-center">P</span>
+                  <span className="text-center">W</span>
+                  <span className="text-center">D</span>
+                  <span className="text-center">L</span>
+                  <span className="text-center">DF</span>
+                  <span className="text-center">GLS</span>
+                  <span className="text-center text-zinc-900 font-black">PTS</span>
                 </div>
 
-                <span className="text-center text-[10px] md:text-[12px] text-zinc-600">{t.p}</span>
-                <span className="text-center text-[10px] md:text-[12px] text-zinc-600">{t.w}</span>
-                <span className="text-center text-[10px] md:text-[12px] text-zinc-600">{t.d}</span>
-                <span className="text-center text-[10px] md:text-[12px] text-zinc-600">{t.l}</span>
-                
-                <span className={`text-center text-[10px] md:text-[12px] ${t.diff > 0 ? 'text-green-700' : t.diff < 0 ? 'text-red-700' : 'text-zinc-500'}`}>
-                  {t.diff > 0 ? `+${t.diff}` : t.diff}
-                </span>
+                {/* Linhas da Tabela */}
+                {times.map((t, i) => (
+                  <div key={t.nome} className={`grid ${gridLayout} gap-0.5 px-1 md:px-3 py-2.5 items-center bg-[#d9d9d9]/70 mt-[1px] border-l-4 ${i >= 16 ? 'border-red-600' : 'border-transparent'}`}>
+                    
+                    {/* Posição com cor dinâmica */}
+                    <span className={`w-5 h-5 md:w-7 md:h-7 flex items-center justify-center rounded-full text-[9px] md:text-[12px] text-white ${getPosColor(i)} shadow-sm shrink-0 mx-auto`}>
+                      {t.pos}
+                    </span>
+                    
+                    {/* Nome e Logo */}
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <img src={t.logo} alt="" className="w-4 h-4 md:w-6 md:h-6 object-contain shrink-0" />
+                      <span className="truncate text-[9px] md:text-[14px] font-black leading-none uppercase">{t.nome}</span>
+                    </div>
 
-                <span className="text-center text-[9px] md:text-[10px] text-zinc-500">{t.gls}</span>
-                
-                <span className="text-center text-[11px] md:text-[16px] font-black text-zinc-900 bg-black/5 rounded-sm py-0.5">
-                  {t.pts}
-                </span>
+                    {/* Stats (Fonte 9px no mobile para caber tudo) */}
+                    <span className="text-center text-[9px] md:text-[12px] text-zinc-600">{t.p}</span>
+                    <span className="text-center text-[9px] md:text-[12px] text-zinc-600">{t.w}</span>
+                    <span className="text-center text-[9px] md:text-[12px] text-zinc-600">{t.d}</span>
+                    <span className="text-center text-[9px] md:text-[12px] text-zinc-600">{t.l}</span>
+                    
+                    <span className={`text-center text-[9px] md:text-[12px] ${t.diff > 0 ? 'text-green-700' : t.diff < 0 ? 'text-red-700' : 'text-zinc-500'}`}>
+                      {t.diff > 0 ? `+${t.diff}` : t.diff}
+                    </span>
+
+                    <span className="text-center text-[8px] md:text-[10px] text-zinc-500 tracking-tighter">{t.gls}</span>
+                    
+                    {/* Pontos */}
+                    <span className="text-center text-[11px] md:text-[16px] font-black text-zinc-900 bg-black/5 rounded-sm py-0.5">
+                      {t.pts}
+                    </span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
-          <div className="pb-10"></div>
+          
+          <div className="pb-24"></div>
         </div>
       </div>
     </main>
