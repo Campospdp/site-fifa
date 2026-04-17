@@ -31,7 +31,7 @@ export default function TabelaMundial({ onBack }) {
   return (
     <main className="flex-grow bg-[#959595] text-zinc-900 flex flex-col h-full overflow-hidden font-sans uppercase italic font-bold">
       
-      {/* HEADER PADRÃO SITE */}
+          {/* HEADER PADRÃO SITE */}
       <div className="flex items-center justify-between p-2 md:p-4 bg-[#1a2024] border-b border-white/10 shrink-0 shadow-lg">
         <button onClick={onBack} className="text-white active:opacity-50 flex items-center gap-1 md:gap-2 shrink-0">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="m15 18-6-6 6-6"/></svg>
@@ -40,7 +40,7 @@ export default function TabelaMundial({ onBack }) {
         
         <div className="flex items-center gap-1.5 md:gap-2 px-2 text-center">
           <img src="/images/mundial.png" alt="" className="w-5 h-5 md:w-8 md:h-8 object-contain shrink-0" />
-          <span className="text-[9px] md:text-xs text-zinc-400 tracking-tighter md:tracking-widest whitespace-nowrap uppercase">FIFA CLUB WORLD CUP 2026</span>
+          <span className="text-[9px] md:text-xs text-zinc-400 tracking-tighter md:tracking-widest whitespace-nowrap uppercase">INTERCONTINENTAL 2026</span>
         </div>
         <div className="w-8 md:w-16"></div>
       </div>
